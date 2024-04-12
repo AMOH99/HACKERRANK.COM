@@ -18,3 +18,10 @@ FROM (
 SELECT COUNT(CITY) AS NUM_OF_RECORDS,
 COUNT(DISTINCT CITY) AS UNIQUE_CITY_NAMES
 FROM STATION) AS DIFFERENCE
+
+**Weather Observation Station 5**
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+
+((select CITY,length(CITY) from STATION order by length(CITY),CITY limit 1 )
+union 
+(select CITY,length(CITY) from STATION order by length(CITY) desc limit 1) ORDER BY CITY);
